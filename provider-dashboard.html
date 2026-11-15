@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Provider Admin Dashboard — NetHealths SaaS</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+        body { font-family: 'Inter', sans-serif; }
+    </style>
+</head>
+<body class="bg-slate-100 text-slate-800">
+
+    <!-- Top Navigation Bar -->
+    <header class="bg-teal-900 text-white sticky top-0 z-50 shadow-md">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex justify-between items-center">
+            <div class="flex items-center space-x-3">
+                <div class="w-9 h-9 bg-teal-600 rounded-lg flex items-center justify-center text-white font-bold text-xl">C</div>
+                <div>
+                    <span class="text-sm font-bold tracking-tight">Chevron Clinical Laboratory</span>
+                    <span class="block text-[10px] text-teal-300">Keranihat Branch • SaaS Tenant Portal</span>
+                </div>
+            </div>
+            <div class="flex items-center space-x-4">
+                <span class="text-xs bg-teal-800 text-teal-200 font-medium px-3 py-1 rounded-full border border-teal-700">
+                    <i class="fa-solid fa-circle text-[8px] text-teal-400 mr-1.5"></i> Live Sync Connected
+                </span>
+                <a href="index.html" class="text-xs font-medium text-teal-200 hover:text-white"><i class="fa-solid fa-arrow-right-from-bracket mr-1"></i> Exit Portal</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Container -->
+    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+        
+        <!-- Quick Stats Overview -->
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-8">
+            <div class="bg-white p-5 rounded-xl border border-slate-200 shadow-sm">
+                <p class="text-xs text-slate-500 font-medium">Today's Appointments</p>
+                <h4 class="text-2xl font-bold text-slate-900 mt-1">14</h4>
+                <span class="text-xs text-teal-600 font-semibold mt-2 inline-block"><i class="fa-solid fa-arrow-up"></i> 4 pending confirmation</span>
+            </div>
+            <div class="bg-white p-5 rounded-xl border border-slate-200 shadow-sm">
+                <p class="text-xs text-slate-500 font-medium">Lab Test Bookings</p>
+                <h4 class="text-2xl font-bold text-slate-900 mt-1">22</h4>
+                <span class="text-xs text-slate-400 mt-2 inline-block">18 sample collected</span>
+            </div>
+            <div class="bg-white p-5 rounded-xl border border-slate-200 shadow-sm">
+                <p class="text-xs text-slate-500 font-medium">Agent Referrals</p>
+                <h4 class="text-2xl font-bold text-slate-900 mt-1">9</h4>
+                <span class="text-xs text-teal-600 font-semibold mt-2 inline-block">From Keranihat Pharma & local agents</span>
+            </div>
+            <div class="bg-teal-600 text-white p-5 rounded-xl shadow-sm flex flex-col justify-between">
+                <div>
+                    <p class="text-xs text-teal-100 font-medium">Center Status</p>
+                    <h4 class="text-base font-bold mt-1">Active & Open</h4>
+                </div>
+                <span class="text-xs bg-teal-700 text-white font-medium py-1 px-2 rounded w-fit mt-3">
+                    Custom Domain: chevron.nethealths.com
+                </span>
+            </div>
+        </div>
+
+        <!-- Incoming Bookings & Referrals Table -->
+        <div class="bg-white rounded-xl border border-slate-200 shadow-sm overflow-hidden mb-8">
+            <div class="p-6 border-b border-slate-200 flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
+                <div>
+                    <h3 class="font-bold text-slate-900 text-base">Incoming Patient Queue (Appointments & Lab Tests)</h3>
+                    <p class="text-xs text-slate-500 mt-0.5">Bookings routed from NetHealths Marketplace and Care Coordinator agents</p>
+                </div>
+                <div class="flex space-x-2 text-xs">
+                    <button class="bg-teal-50 text-teal-700 font-semibold px-3 py-1.5 rounded-lg border border-teal-200">All Queue</button>
+                    <button class="bg-slate-50 text-slate-600 font-medium px-3 py-1.5 rounded-lg border border-slate-200 hover:bg-slate-100">Pending</button>
+                </div>
+            </div>
+
+            <div class="overflow-x-auto">
+                <table class="w-full text-left text-sm">
+                    <thead class="bg-slate-50 text-slate-500 text-xs uppercase font-semibold border-b border-slate-200">
+                        <tr>
+                            <th class="p-4">Patient Details</th>
+                            <th class="p-4">Service / Doctor</th>
+                            <th class="p-4">Source / Channel</th>
+                            <th class="p-4">Date & Time</th>
+                            <th class="p-4">Action / Status</th>
+                        </tr>
+                    </thead>
+                    <tbody class="divide-y divide-slate-100 text-xs">
+                        <tr>
+                            <td class="p-4">
+                                <span class="font-bold text-slate-900 block text-sm">Suman Biswas</span>
+                                <span class="text-slate-400">01711-223344</span>
+                            </td>
+                            <td class="p-4 font-medium text-slate-700">Dr. Rafiqul Islam (Cardiology)</td>
+                            <td class="p-4 text-slate-500">Marketplace (nh.sumanbiswas.com)</td>
+                            <td class="p-4 text-slate-600">Nov 17, 2026 • 5:30 PM</td>
+                            <td class="p-4">
+                                <button onclick="markConfirmed(this)" class="bg-teal-600 hover:bg-teal-700 text-white font-semibold px-3 py-1.5 rounded-lg transition">
+                                    Confirm Booking
+                                </button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="p-4">
+                                <span class="font-bold text-slate-900 block text-sm">Jamal Uddin</span>
+                                <span class="text-slate-400">01855-667788</span>
+                            </td>
+                            <td class="p-4 font-medium text-slate-700">Complete Blood Count (CBC)</td>
+                            <td class="p-4 text-amber-600 font-medium">Agent Referral (Keranihat Pharma)</td>
+                            <td class="p-4 text-slate-600">Nov 17, 2026 • 10:00 AM</td>
+                            <td class="p-4">
+                                <button onclick="markConfirmed(this)" class="bg-teal-600 hover:bg-teal-700 text-white font-semibold px-3 py-1.5 rounded-lg transition">
+                                    Confirm Booking
+                                </button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="p-4">
+                                <span class="font-bold text-slate-900 block text-sm">Nazma Akter</span>
+                                <span class="text-slate-400">01922-334455</span>
+                            </td>
+                            <td class="p-4 font-medium text-slate-700">Lipid Profile Test</td>
+                            <td class="p-4 text-slate-500">Direct Center Website</td>
+                            <td class="p-4 text-slate-600">Nov 16, 2026</td>
+                            <td class="p-4">
+                                <span class="bg-teal-50 text-teal-700 font-semibold px-3 py-1.5 rounded-lg border border-teal-200">Confirmed & Completed</span>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+    </main>
+
+    <!-- Toast Notification -->
+    <div id="providerToast" class="fixed bottom-5 right-5 bg-slate-900 text-white px-6 py-3 rounded-xl shadow-xl hidden text-sm items-center space-x-3 z-50">
+        <i class="fa-solid fa-circle-check text-teal-400 text-lg"></i>
+        <div>
+            <p class="font-semibold">Booking Confirmed Successfully!</p>
+            <p class="text-xs text-slate-300">SMS notification sent to patient.</p>
+        </div>
+    </div>
+
+    <script>
+        function markConfirmed(button) {
+            button.parentElement.innerHTML = `<span class="bg-teal-50 text-teal-700 font-semibold px-3 py-1.5 rounded-lg border border-teal-200">Confirmed</span>`;
+            
+            const toast = document.getElementById('providerToast');
+            toast.classList.remove('hidden');
+            toast.classList.add('flex');
+
+            setTimeout(() => {
+                toast.classList.remove('flex');
+                toast.classList.add('hidden');
+            }, 3000);
+        }
+    </script>
+</body>
+</html>

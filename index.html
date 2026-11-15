@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NetHealths — Unified Healthcare Ecosystem</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+        body { font-family: 'Inter', sans-serif; }
+    </style>
+</head>
+<body class="bg-slate-50 text-slate-800">
+
+    <!-- Navbar -->
+    <nav class="bg-white border-b border-slate-200 sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-16 items-center">
+                <!-- Logo -->
+                <div class="flex items-center space-x-2">
+                    <div class="w-9 h-9 bg-teal-600 rounded-lg flex items-center justify-center text-white font-bold text-xl">
+                        N
+                    </div>
+                    <span class="text-xl font-bold text-slate-900 tracking-tight">Net<span class="text-teal-600">Healths</span></span>
+                </div>
+
+                <!-- Navigation Links -->
+                <div class="hidden md:flex space-x-8 text-sm font-medium text-slate-600">
+                    <a href="index.html" class="text-teal-600 font-semibold">Home</a>
+                    <a href="doctors.html" class="hover:text-teal-600 transition">Find Doctors</a>
+                    <a href="diagnostics.html" class="hover:text-teal-600 transition">Diagnostics & Lab Tests</a>
+                    <a href="hospitals.html" class="hover:text-teal-600 transition">Hospitals</a>
+                </div>
+
+                <!-- Portal & Login Buttons -->
+                <div class="flex items-center space-x-3">
+                    <a href="agent-dashboard.html" class="hidden sm:inline-block text-sm font-medium text-slate-600 hover:text-teal-600 px-3 py-2">
+                        Partner / Agent Portal
+                    </a>
+                    <a href="provider-dashboard.html" class="bg-teal-600 hover:bg-teal-700 text-white text-sm font-medium px-4 py-2 rounded-lg transition shadow-sm">
+                        Provider Login
+                    </a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section with Search -->
+    <section class="bg-gradient-to-br from-teal-900 via-teal-800 to-slate-900 text-white py-16 lg:py-24">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <span class="inline-block bg-teal-700/60 border border-teal-500/30 text-teal-200 text-xs font-semibold px-3 py-1 rounded-full mb-4">
+                One Platform • Multiple Healthcare Providers • Connected Care
+            </span>
+            <h1 class="text-3xl sm:text-5xl font-bold tracking-tight mb-4">
+                Find Doctors, Hospitals & Lab Tests Near You
+            </h1>
+            <p class="text-slate-300 max-w-2xl mx-auto text-base sm:text-lg mb-10">
+                Book instant appointments across verified hospitals and diagnostic centers, compare lab test prices, and manage your health records securely.
+            </p>
+
+            <!-- Unified Search Box -->
+            <div class="max-w-4xl mx-auto bg-white rounded-xl p-2 shadow-xl text-slate-800">
+                <form id="heroSearchForm" class="grid grid-cols-1 md:grid-cols-12 gap-2">
+                    <!-- Location -->
+                    <div class="md:col-span-3 flex items-center px-3 py-2 border-b md:border-b-0 md:border-r border-slate-200">
+                        <i class="fa-solid fa-location-dot text-teal-600 mr-2"></i>
+                        <select id="searchLocation" class="w-full bg-transparent text-sm font-medium focus:outline-none">
+                            <option value="all">All Locations</option>
+                            <option value="chittagong">Chittagong City</option>
+                            <option value="keranihat">Keranihat / Satkania</option>
+                            <option value="dhaka">Dhaka</option>
+                        </select>
+                    </div>
+
+                    <!-- Category -->
+                    <div class="md:col-span-3 flex items-center px-3 py-2 border-b md:border-b-0 md:border-r border-slate-200">
+                        <i class="fa-solid fa-layer-group text-teal-600 mr-2"></i>
+                        <select id="searchType" class="w-full bg-transparent text-sm font-medium focus:outline-none">
+                            <option value="doctor">Doctors</option>
+                            <option value="test">Lab Tests</option>
+                            <option value="diagnostic">Diagnostic Centers</option>
+                            <option value="hospital">Hospitals</option>
+                        </select>
+                    </div>
+
+                    <!-- Keyword Input -->
+                    <div class="md:col-span-4 flex items-center px-3 py-2">
+                        <i class="fa-solid fa-magnifying-glass text-slate-400 mr-2"></i>
+                        <input type="text" id="searchQuery" placeholder="Search doctor, specialty, or CBC test..." class="w-full bg-transparent text-sm focus:outline-none">
+                    </div>
+
+                    <!-- Search Button -->
+                    <div class="md:col-span-2">
+                        <button type="submit" class="w-full h-full bg-teal-600 hover:bg-teal-700 text-white font-semibold py-3 px-4 rounded-lg transition text-sm">
+                            Search
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Quick Services Cards -->
+    <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 -mt-8 relative z-10">
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+            <a href="doctors.html" class="bg-white p-6 rounded-xl shadow-sm border border-slate-200 hover:border-teal-500 transition flex items-start space-x-4">
+                <div class="w-12 h-12 rounded-lg bg-teal-50 text-teal-600 flex items-center justify-center text-xl shrink-0">
+                    <i class="fa-solid fa-user-doctor"></i>
+                </div>
+                <div>
+                    <h3 class="font-semibold text-slate-900">Doctor Appointment</h3>
+                    <p class="text-xs text-slate-500 mt-1">Book verified specialists across top centers</p>
+                </div>
+            </a>
+
+            <a href="diagnostics.html" class="bg-white p-6 rounded-xl shadow-sm border border-slate-200 hover:border-teal-500 transition flex items-start space-x-4">
+                <div class="w-12 h-12 rounded-lg bg-blue-50 text-blue-600 flex items-center justify-center text-xl shrink-0">
+                    <i class="fa-solid fa-flask-vial"></i>
+                </div>
+                <div>
+                    <h3 class="font-semibold text-slate-900">Lab Test Prices</h3>
+                    <p class="text-xs text-slate-500 mt-1">Compare diagnostic test rates & book slots</p>
+                </div>
+            </a>
+
+            <a href="hospitals.html" class="bg-white p-6 rounded-xl shadow-sm border border-slate-200 hover:border-teal-500 transition flex items-start space-x-4">
+                <div class="w-12 h-12 rounded-lg bg-indigo-50 text-indigo-600 flex items-center justify-center text-xl shrink-0">
+                    <i class="fa-solid fa-hospital"></i>
+                </div>
+                <div>
+                    <h3 class="font-semibold text-slate-900">Hospital Services</h3>
+                    <p class="text-xs text-slate-500 mt-1">Explore cabin, surgery & emergency packages</p>
+                </div>
+            </a>
+
+            <a href="agent-dashboard.html" class="bg-white p-6 rounded-xl shadow-sm border border-slate-200 hover:border-teal-500 transition flex items-start space-x-4">
+                <div class="w-12 h-12 rounded-lg bg-amber-50 text-amber-600 flex items-center justify-center text-xl shrink-0">
+                    <i class="fa-solid fa-handshake-angle"></i>
+                </div>
+                <div>
+                    <h3 class="font-semibold text-slate-900">Care Coordinator</h3>
+                    <p class="text-xs text-slate-500 mt-1">Referral portal for pharmacies & health workers</p>
+                </div>
+            </a>
+        </div>
+    </section>
+
+    <!-- Featured Diagnostic Centers & Hospitals -->
+    <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+        <div class="flex justify-between items-end mb-8">
+            <div>
+                <h2 class="text-2xl font-bold text-slate-900">Partner Diagnostic Centers & Hospitals</h2>
+                <p class="text-sm text-slate-500 mt-1">Access individual provider portals or book directly through NetHealths</p>
+            </div>
+            <a href="diagnostics.html" class="text-sm font-semibold text-teal-600 hover:text-teal-700">View All &rarr;</a>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <!-- Center Card 1 -->
+            <div class="bg-white rounded-xl border border-slate-200 overflow-hidden shadow-sm hover:shadow-md transition">
+                <div class="p-6">
+                    <div class="flex justify-between items-start">
+                        <span class="bg-teal-50 text-teal-700 text-xs font-semibold px-2.5 py-0.5 rounded">Diagnostic Center</span>
+                        <span class="text-xs text-slate-400"><i class="fa-solid fa-location-dot mr-1"></i>Keranihat</span>
+                    </div>
+                    <h3 class="text-lg font-bold text-slate-900 mt-3">Chevron Clinical Laboratory</h3>
+                    <p class="text-xs text-slate-500 mt-1">Full automated pathology, imaging, and specialist doctor chamber.</p>
+                    <div class="mt-4 pt-4 border-t border-slate-100 flex justify-between items-center text-xs">
+                        <span class="text-slate-600 font-medium">45+ Specialists • 120+ Tests</span>
+                        <a href="doctors.html" class="text-teal-600 font-semibold hover:underline">Book Now &rarr;</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Center Card 2 -->
+            <div class="bg-white rounded-xl border border-slate-200 overflow-hidden shadow-sm hover:shadow-md transition">
+                <div class="p-6">
+                    <div class="flex justify-between items-start">
+                        <span class="bg-indigo-50 text-indigo-700 text-xs font-semibold px-2.5 py-0.5 rounded">General Hospital</span>
+                        <span class="text-xs text-slate-400"><i class="fa-solid fa-location-dot mr-1"></i>Chittagong</span>
+                    </div>
+                    <h3 class="text-lg font-bold text-slate-900 mt-3">Metro Care Specialized Hospital</h3>
+                    <p class="text-xs text-slate-500 mt-1">24/7 Emergency, ICU, Maternity, and multi-disciplinary outpatient care.</p>
+                    <div class="mt-4 pt-4 border-t border-slate-100 flex justify-between items-center text-xs">
+                        <span class="text-slate-600 font-medium">80+ Specialists • 24/7 Open</span>
+                        <a href="doctors.html" class="text-teal-600 font-semibold hover:underline">Book Now &rarr;</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Center Card 3 -->
+            <div class="bg-white rounded-xl border border-slate-200 overflow-hidden shadow-sm hover:shadow-md transition">
+                <div class="p-6">
+                    <div class="flex justify-between items-start">
+                        <span class="bg-teal-50 text-teal-700 text-xs font-semibold px-2.5 py-0.5 rounded">Diagnostic & Consultation</span>
+                        <span class="text-xs text-slate-400"><i class="fa-solid fa-location-dot mr-1"></i>Satkania</span>
+                    </div>
+                    <h3 class="text-lg font-bold text-slate-900 mt-3">Popular Health & Diagnostics</h3>
+                    <p class="text-xs text-slate-500 mt-1">Digital X-Ray, Ultrasonography, ECG, and daily specialist consultations.</p>
+                    <div class="mt-4 pt-4 border-t border-slate-100 flex justify-between items-center text-xs">
+                        <span class="text-slate-600 font-medium">30+ Specialists • 90+ Tests</span>
+                        <a href="doctors.html" class="text-teal-600 font-semibold hover:underline">Book Now &rarr;</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Healthcare Ecosystem Roles Section -->
+    <section class="bg-slate-900 text-white py-16">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-2xl mx-auto mb-12">
+                <h2 class="text-2xl sm:text-3xl font-bold">Built for the Entire Healthcare Ecosystem</h2>
+                <p class="text-slate-400 text-sm mt-2">Connecting patients, hospitals, diagnostic centers, and frontline healthcare workers on one secure, HIPAA-ready infrastructure.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="bg-slate-800/60 border border-slate-700 p-6 rounded-xl">
+                    <div class="text-teal-400 text-2xl mb-3"><i class="fa-solid fa-building-shield"></i></div>
+                    <h3 class="text-lg font-semibold mb-2">Hospitals & Diagnostics (SaaS)</h3>
+                    <p class="text-sm text-slate-400 mb-4">Launch your own branded website on your custom domain while receiving bookings directly from the central marketplace.</p>
+                    <a href="provider-dashboard.html" class="text-teal-400 text-sm font-medium hover:underline">Explore Provider Dashboard &rarr;</a>
+                </div>
+
+                <div class="bg-slate-800/60 border border-slate-700 p-6 rounded-xl">
+                    <div class="text-teal-400 text-2xl mb-3"><i class="fa-solid fa-user-nurse"></i></div>
+                    <h3 class="text-lg font-semibold mb-2">Care Coordinators & Pharmacies</h3>
+                    <p class="text-sm text-slate-400 mb-4">Refer patients seamlessly to partner hospitals or labs, enter primary patient details, and track referral status in real time.</p>
+                    <a href="agent-dashboard.html" class="text-teal-400 text-sm font-medium hover:underline">Open Referral Portal &rarr;</a>
+                </div>
+
+                <div class="bg-slate-800/60 border border-slate-700 p-6 rounded-xl">
+                    <div class="text-teal-400 text-2xl mb-3"><i class="fa-solid fa-file-medical"></i></div>
+                    <h3 class="text-lg font-semibold mb-2">Unified Patient EHR</h3>
+                    <p class="text-sm text-slate-400 mb-4">Patients control their medical history, prescriptions, and lab reports—sharing access only with authorized providers.</p>
+                    <a href="patient-dashboard.html" class="text-teal-400 text-sm font-medium hover:underline">View Patient Portal &rarr;</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-white border-t border-slate-200 py-8 text-center text-sm text-slate-500">
+        <div class="max-w-7xl mx-auto px-4">
+            <p>&copy; 2026 NetHealths Ecosystem. All rights reserved. | Secure & Privacy-First Healthcare Platform</p>
+        </div>
+    </footer>
+
+    <!-- Basic JS for Search Redirection -->
+    <script>
+        document.getElementById('heroSearchForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const type = document.getElementById('searchType').value;
+            const query = document.getElementById('searchQuery').value;
+            const location = document.getElementById('searchLocation').value;
+
+            if (type === 'doctor') {
+                window.location.href = `doctors.html?q=${encodeURIComponent(query)}&loc=${location}`;
+            } else if (type === 'test' || type === 'diagnostic') {
+                window.location.href = `diagnostics.html?q=${encodeURIComponent(query)}&loc=${location}`;
+            } else {
+                window.location.href = `hospitals.html?q=${encodeURIComponent(query)}&loc=${location}`;
+            }
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Care Coordinator & Referral Portal — NetHealths</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+        body { font-family: 'Inter', sans-serif; }
+    </style>
+</head>
+<body class="bg-slate-100 text-slate-800">
+
+    <!-- Top Navigation Bar -->
+    <header class="bg-white border-b border-slate-200 sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex justify-between items-center">
+            <div class="flex items-center space-x-3">
+                <div class="w-9 h-9 bg-amber-600 rounded-lg flex items-center justify-center text-white font-bold text-xl">A</div>
+                <div>
+                    <span class="text-sm font-bold text-slate-900">NetHealths Partner Hub</span>
+                    <span class="block text-[10px] text-slate-500">Care Coordinator / Agent Portal</span>
+                </div>
+            </div>
+            <div class="flex items-center space-x-4">
+                <span class="text-xs bg-amber-50 text-amber-700 font-semibold px-3 py-1 rounded-full border border-amber-200">
+                    <i class="fa-solid fa-circle text-[8px] text-amber-500 mr-1.5"></i> Active Agent: Keranihat Pharma
+                </span>
+                <a href="index.html" class="text-sm font-medium text-slate-600 hover:text-slate-900"><i class="fa-solid fa-arrow-right-from-bracket mr-1"></i> Exit</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Container -->
+    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+        
+        <!-- Welcome Banner & Quick Stats -->
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-4 mb-8">
+            <div class="bg-white p-5 rounded-xl border border-slate-200 shadow-sm">
+                <p class="text-xs text-slate-500 font-medium">Total Referrals (This Month)</p>
+                <h4 class="text-2xl font-bold text-slate-900 mt-1">28</h4>
+                <span class="text-xs text-teal-600 font-semibold mt-2 inline-block"><i class="fa-solid fa-arrow-up"></i> +12% from last month</span>
+            </div>
+            <div class="bg-white p-5 rounded-xl border border-slate-200 shadow-sm">
+                <p class="text-xs text-slate-500 font-medium">Successful Bookings</p>
+                <h4 class="text-2xl font-bold text-slate-900 mt-1">24</h4>
+                <span class="text-xs text-slate-400 mt-2 inline-block">4 pending center confirmation</span>
+            </div>
+            <div class="bg-white p-5 rounded-xl border border-slate-200 shadow-sm">
+                <p class="text-xs text-slate-500 font-medium">Partner Centers</p>
+                <h4 class="text-2xl font-bold text-slate-900 mt-1">3 Connected</h4>
+                <span class="text-xs text-teal-600 font-semibold mt-2 inline-block">Chevron, Metro, Popular</span>
+            </div>
+            <div class="bg-amber-600 text-white p-5 rounded-xl shadow-sm flex flex-col justify-between">
+                <div>
+                    <p class="text-xs text-amber-100 font-medium">Quick Action</p>
+                    <h4 class="text-base font-bold mt-1">New Patient Referral</h4>
+                </div>
+                <button onclick="openReferralModal()" class="mt-3 bg-white text-amber-700 font-semibold text-xs py-2 px-3 rounded-lg hover:bg-amber-50 transition shadow-sm">
+                    <i class="fa-solid fa-plus mr-1"></i> Refer Patient Now
+                </button>
+            </div>
+        </div>
+
+        <!-- Recent Referral List & Status Table -->
+        <div class="bg-white rounded-xl border border-slate-200 shadow-sm overflow-hidden">
+            <div class="p-6 border-b border-slate-200 flex justify-between items-center">
+                <div>
+                    <h3 class="font-bold text-slate-900 text-base">Recent Patient Referrals</h3>
+                    <p class="text-xs text-slate-500 mt-0.5">Track patient appointments and lab test status sent to partner centers</p>
+                </div>
+                <button onclick="openReferralModal()" class="bg-slate-900 hover:bg-slate-800 text-white text-xs font-semibold px-4 py-2 rounded-lg transition">
+                    + Add New Referral
+                </button>
+            </div>
+
+            <div class="overflow-x-auto">
+                <table class="w-full text-left text-sm">
+                    <thead class="bg-slate-50 text-slate-500 text-xs uppercase font-semibold border-b border-slate-200">
+                        <tr>
+                            <th class="p-4">Patient Name & Phone</th>
+                            <th class="p-4">Referred Service</th>
+                            <th class="p-4">Target Center</th>
+                            <th class="p-4">Date</th>
+                            <th class="p-4">Status</th>
+                        </tr>
+                    </thead>
+                    <tbody class="divide-y divide-slate-100 text-xs">
+                        <tr>
+                            <td class="p-4">
+                                <span class="font-bold text-slate-900 block">Abdul Karim</span>
+                                <span class="text-slate-400">01812-345678</span>
+                            </td>
+                            <td class="p-4 font-medium text-slate-700">Dr. Rafiqul Islam (Cardiology)</td>
+                            <td class="p-4 text-slate-600">Chevron Keranihat</td>
+                            <td class="p-4 text-slate-500">Nov 16, 2026</td>
+                            <td class="p-4">
+                                <span class="bg-teal-50 text-teal-700 font-semibold px-2.5 py-1 rounded-full border border-teal-200">Confirmed</span>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="p-4">
+                                <span class="font-bold text-slate-900 block">Fatema Begum</span>
+                                <span class="text-slate-400">01798-765432</span>
+                            </td>
+                            <td class="p-4 font-medium text-slate-700">Complete Blood Count (CBC)</td>
+                            <td class="p-4 text-slate-600">Metro Diagnostics</td>
+                            <td class="p-4 text-slate-500">Nov 15, 2026</td>
+                            <td class="p-4">
+                                <span class="bg-amber-50 text-amber-700 font-semibold px-2.5 py-1 rounded-full border border-amber-200">Sample Collected</span>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="p-4">
+                                <span class="font-bold text-slate-900 block">Nazmul Hossain</span>
+                                <span class="text-slate-400">01655-443322</span>
+                            </td>
+                            <td class="p-4 font-medium text-slate-700">Digital X-Ray (Chest)</td>
+                            <td class="p-4 text-slate-600">Popular Health Satkania</td>
+                            <td class="p-4 text-slate-500">Nov 14, 2026</td>
+                            <td class="p-4">
+                                <span class="bg-blue-50 text-blue-700 font-semibold px-2.5 py-1 rounded-full border border-blue-200">Completed & Reported</span>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+    </main>
+
+    <!-- Referral Modal -->
+    <div id="referralModal" class="fixed inset-0 bg-slate-900/50 hidden items-center justify-center z-50 p-4">
+        <div class="bg-white max-w-lg w-full rounded-2xl p-6 shadow-2xl relative">
+            <button onclick="closeReferralModal()" class="absolute top-4 right-4 text-slate-400 hover:text-slate-600">
+                <i class="fa-solid fa-xmark text-lg"></i>
+            </button>
+            <h3 class="text-xl font-bold text-slate-900 mb-1">New Patient Referral</h3>
+            <p class="text-xs text-slate-500 mb-4">Route patient directly to partner diagnostic or hospital dashboard.</p>
+
+            <form id="referralForm" onsubmit="submitReferral(event)" class="space-y-3 text-sm">
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                    <div>
+                        <label class="block font-medium text-slate-700 text-xs mb-1">Patient Full Name</label>
+                        <input type="text" id="refName" required placeholder="e.g. Jamal Uddin" class="w-full bg-slate-50 border border-slate-300 rounded-lg p-2 text-sm focus:outline-none focus:border-amber-500">
+                    </div>
+                    <div>
+                        <label class="block font-medium text-slate-700 text-xs mb-1">Mobile Number</label>
+                        <input type="tel" id="refPhone" required placeholder="e.g. 018XXXXXXXX" class="w-full bg-slate-50 border border-slate-300 rounded-lg p-2 text-sm focus:outline-none focus:border-amber-500">
+                    </div>
+                </div>
+
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                    <div>
+                        <label class="block font-medium text-slate-700 text-xs mb-1">Target Center</label>
+                        <select id="refCenter" class="w-full bg-slate-50 border border-slate-300 rounded-lg p-2 text-sm focus:outline-none focus:border-amber-500">
+                            <option value="Chevron Keranihat">Chevron Keranihat</option>
+                            <option value="Metro Care Hospital">Metro Care Hospital</option>
+                            <option value="Popular Health Satkania">Popular Health Satkania</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label class="block font-medium text-slate-700 text-xs mb-1">Service Type</label>
+                        <select id="refService" class="w-full bg-slate-50 border border-slate-300 rounded-lg p-2 text-sm focus:outline-none focus:border-amber-500">
+                            <option value="Doctor Appointment">Doctor Appointment</option>
+                            <option value="Lab Test (Pathology)">Lab Test (Pathology)</option>
+                            <option value="Imaging (X-Ray/USG)">Imaging (X-Ray/USG)</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div>
+                    <label class="block font-medium text-slate-700 text-xs mb-1">Primary Health Notes / Symptoms (EHR Info)</label>
+                    <textarea id="refNotes" rows="2" placeholder="e.g. High fever for 3 days, needs blood test and doctor consultation." class="w-full bg-slate-50 border border-slate-300 rounded-lg p-2 text-sm focus:outline-none focus:border-amber-500"></textarea>
+                </div>
+
+                <div class="pt-2">
+                    <button type="submit" class="w-full bg-amber-600 hover:bg-amber-700 text-white font-semibold py-2.5 rounded-lg transition text-sm">
+                        Submit & Send to Center Queue
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Toast Notification -->
+    <div id="refToast" class="fixed bottom-5 right

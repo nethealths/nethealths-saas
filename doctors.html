@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Find Doctors & Book Appointments — NetHealths</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+        body { font-family: 'Inter', sans-serif; }
+    </style>
+</head>
+<body class="bg-slate-50 text-slate-800">
+
+    <!-- Navbar -->
+    <nav class="bg-white border-b border-slate-200 sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-16 items-center">
+                <div class="flex items-center space-x-2">
+                    <div class="w-9 h-9 bg-teal-600 rounded-lg flex items-center justify-center text-white font-bold text-xl">N</div>
+                    <span class="text-xl font-bold text-slate-900 tracking-tight">Net<span class="text-teal-600">Healths</span></span>
+                </div>
+                <div class="hidden md:flex space-x-8 text-sm font-medium text-slate-600">
+                    <a href="index.html" class="hover:text-teal-600 transition">Home</a>
+                    <a href="doctors.html" class="text-teal-600 font-semibold">Find Doctors</a>
+                    <a href="diagnostics.html" class="hover:text-teal-600 transition">Diagnostics & Lab Tests</a>
+                    <a href="hospitals.html" class="hover:text-teal-600 transition">Hospitals</a>
+                </div>
+                <div class="flex items-center space-x-3">
+                    <a href="provider-dashboard.html" class="bg-teal-600 hover:bg-teal-700 text-white text-sm font-medium px-4 py-2 rounded-lg transition shadow-sm">
+                        Provider Login
+                    </a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Header Banner -->
+    <section class="bg-teal-900 text-white py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h1 class="text-2xl sm:text-3xl font-bold">Find & Book Verified Specialists</h1>
+            <p class="text-teal-200 text-sm mt-1">Direct appointment booking routed securely to partner diagnostic centers and hospitals.</p>
+        </div>
+    </section>
+
+    <!-- Main Content Area -->
+    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+        <div class="grid grid-cols-1 lg:grid-cols-4 gap-8">
+            
+            <!-- Sidebar Filters -->
+            <div class="lg:col-span-1 bg-white p-6 rounded-xl border border-slate-200 h-fit shadow-sm">
+                <h3 class="font-bold text-slate-900 mb-4 text-base">Filter Doctors</h3>
+                
+                <div class="space-y-4 text-sm">
+                    <!-- Specialty Filter -->
+                    <div>
+                        <label class="block font-medium text-slate-700 mb-1">Specialty</label>
+                        <select id="filterSpecialty" class="w-full bg-slate-50 border border-slate-300 rounded-lg p-2 text-sm focus:outline-none focus:border-teal-500">
+                            <option value="all">All Specialties</option>
+                            <option value="Cardiology">Cardiology</option>
+                            <option value="Medicine">Medicine</option>
+                            <option value="Pediatrics">Pediatrics</option>
+                            <option value="Gynecology">Gynecology</option>
+                        </select>
+                    </div>
+
+                    <!-- Location / Center Filter -->
+                    <div>
+                        <label class="block font-medium text-slate-700 mb-1">Center / Location</label>
+                        <select id="filterCenter" class="w-full bg-slate-50 border border-slate-300 rounded-lg p-2 text-sm focus:outline-none focus:border-teal-500">
+                            <option value="all">All Centers</option>
+                            <option value="Chevron Keranihat">Chevron Keranihat</option>
+                            <option value="Metro Care Hospital">Metro Care Hospital</option>
+                            <option value="Popular Health Satkania">Popular Health Satkania</option>
+                        </select>
+                    </div>
+
+                    <button onclick="applyFilters()" class="w-full bg-slate-900 hover:bg-slate-800 text-white font-medium py-2 rounded-lg transition text-sm">
+                        Apply Filters
+                    </button>
+                </div>
+            </div>
+
+            <!-- Doctor Cards List -->
+            <div class="lg:col-span-3 space-y-4">
+                
+                <!-- Doctor Card 1 -->
+                <div class="bg-white p-6 rounded-xl border border-slate-200 shadow-sm flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
+                    <div class="flex items-start space-x-4">
+                        <div class="w-16 h-16 rounded-full bg-teal-100 text-teal-700 font-bold flex items-center justify-center text-xl shrink-0">
+                            DR
+                        </div>
+                        <div>
+                            <span class="bg-teal-50 text-teal-700 text-xs font-semibold px-2 py-0.5 rounded">Cardiologist</span>
+                            <h3 class="text-lg font-bold text-slate-900 mt-1">Dr. Rafiqul Islam</h3>
+                            <p class="text-xs text-slate-500">MBBS, FCPS (Cardiology), MRCP (UK)</p>
+                            <p class="text-xs font-medium text-slate-700 mt-2"><i class="fa-solid fa-hospital text-teal-600 mr-1"></i> Chevron Clinical Laboratory, Keranihat</p>
+                            <p class="text-xs text-slate-400 mt-1"><i class="fa-regular fa-clock text-slate-400 mr-1"></i> Visiting: Sat, Mon, Wed (5 PM - 9 PM)</p>
+                        </div>
+                    </div>
+                    <div class="w-full sm:w-auto text-right flex sm:flex-col justify-between items-center sm:items-end">
+                        <span class="text-base font-bold text-slate-900">৳ 1,000</span>
+                        <button onclick="openBookingModal('Dr. Rafiqul Islam', 'Chevron Clinical Laboratory, Keranihat', '৳ 1,000')" class="mt-3 bg-teal-600 hover:bg-teal-700 text-white text-xs font-semibold px-4 py-2.5 rounded-lg transition shadow-sm">
+                            Book Appointment
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Doctor Card 2 -->
+                <div class="bg-white p-6 rounded-xl border border-slate-200 shadow-sm flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
+                    <div class="flex items-start space-x-4">
+                        <div class="w-16 h-16 rounded-full bg-indigo-100 text-indigo-700 font-bold flex items-center justify-center text-xl shrink-0">
+                            DR
+                        </div>
+                        <div>
+                            <span class="bg-indigo-50 text-indigo-700 text-xs font-semibold px-2 py-0.5 rounded">Medicine Specialist</span>
+                            <h3 class="text-lg font-bold text-slate-900 mt-1">Dr. Nusrat Jahan</h3>
+                            <p class="text-xs text-slate-500">MBBS, MD (Internal Medicine)</p>
+                            <p class="text-xs font-medium text-slate-700 mt-2"><i class="fa-solid fa-hospital text-teal-600 mr-1"></i> Metro Care Specialized Hospital, Chittagong</p>
+                            <p class="text-xs text-slate-400 mt-1"><i class="fa-regular fa-clock text-slate-400 mr-1"></i> Visiting: Everyday (4 PM - 8 PM)</p>
+                        </div>
+                    </div>
+                    <div class="w-full sm:w-auto text-right flex sm:flex-col justify-between items-center sm:items-end">
+                        <span class="text-base font-bold text-slate-900">৳ 800</span>
+                        <button onclick="openBookingModal('Dr. Nusrat Jahan', 'Metro Care Specialized Hospital, Chittagong', '৳ 800')" class="mt-3 bg-teal-600 hover:bg-teal-700 text-white text-xs font-semibold px-4 py-2.5 rounded-lg transition shadow-sm">
+                            Book Appointment
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Doctor Card 3 -->
+                <div class="bg-white p-6 rounded-xl border border-slate-200 shadow-sm flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
+                    <div class="flex items-start space-x-4">
+                        <div class="w-16 h-16 rounded-full bg-amber-100 text-amber-700 font-bold flex items-center justify-center text-xl shrink-0">
+                            DR
+                        </div>
+                        <div>
+                            <span class="bg-amber-50 text-amber-700 text-xs font-semibold px-2 py-0.5 rounded">Pediatrics</span>
+                            <h3 class="text-lg font-bold text-slate-900 mt-1">Dr. Arman Hossain</h3>
+                            <p class="text-xs text-slate-500">MBBS, DCH (Child Health)</p>
+                            <p class="text-xs font-medium text-slate-700 mt-2"><i class="fa-solid fa-hospital text-teal-600 mr-1"></i> Popular Health & Diagnostics, Satkania</p>
+                            <p class="text-xs text-slate-400 mt-1"><i class="fa-regular fa-clock text-slate-400 mr-1"></i> Visiting: Sun, Tue, Thu (3 PM - 7 PM)</p>
+                        </div>
+                    </div>
+                    <div class="w-full sm:w-auto text-right flex sm:flex-col justify-between items-center sm:items-end">
+                        <span class="text-base font-bold text-slate-900">৳ 700</span>
+                        <button onclick="openBookingModal('Dr. Arman Hossain', 'Popular Health & Diagnostics, Satkania', '৳ 700')" class="mt-3 bg-teal-600 hover:bg-teal-700 text-white text-xs font-semibold px-4 py-2.5 rounded-lg transition shadow-sm">
+                            Book Appointment
+                        </button>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </main>
+
+    <!-- Booking Modal (Popup) -->
+    <div id="bookingModal" class="fixed inset-0 bg-slate-900/50 hidden items-center justify-center z-50 p-4">
+        <div class="bg-white max-w-md w-full rounded-2xl p-6 shadow-2xl relative">
+            <button onclick="closeBookingModal()" class="absolute top-4 right-4 text-slate-400 hover:text-slate-600">
+                <i class="fa-solid fa-xmark text-lg"></i>
+            </button>
+            <h3 class="text-xl font-bold text-slate-900 mb-1">Confirm Appointment</h3>
+            <p id="modalDocInfo" class="text-xs text-slate-500 mb-4">Doctor & Center Details</p>
+
+            <form id="appointmentForm" onsubmit="submitAppointment(event)" class="space-y-3 text-sm">
+                <div>
+                    <label class="block font-medium text-slate-700 text-xs mb-1">Patient Full Name</label>
+                    <input type="text" id="patientName" required placeholder="e.g. Suman Biswas" class="w-full bg-slate-50 border border-slate-300 rounded-lg p-2 text-sm focus:outline-none focus:border-teal-500">
+                </div>
+                <div>
+                    <label class="block font-medium text-slate-700 text-xs mb-1">Mobile Number</label>
+                    <input type="tel" id="patientPhone" required placeholder="e.g. 017XXXXXXXX" class="w-full bg-slate-50 border border-slate-300 rounded-lg p-2 text-sm focus:outline-none focus:border-teal-500">
+                </div>
+                <div>
+                    <label class="block font-medium text-slate-700 text-xs mb-1">Preferred Appointment Date</label>
+                    <input type="date" id="appointmentDate" required class="w-full bg-slate-50 border border-slate-300 rounded-lg p-2 text-sm focus:outline-none focus:border-teal-500">
+                </div>
+                <div class="pt-2">
+                    <button type="submit" class="w-full bg-teal-600 hover:bg-teal-700 text-white font-semibold py-2.5 rounded-lg transition text-sm">
+                        Confirm & Send to Center Dashboard
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Success Notification Toast -->
+    <div id="successToast" class="fixed bottom-5 right-5 bg-slate-900 text-white px-6 py-3 rounded-xl shadow-xl hidden text-sm items-center space-x-3 z-50">
+        <i class="fa-solid fa-circle-check text-teal-400 text-lg"></i>
+        <div>
+            <p class="font-semibold">Appointment Booked Successfully!</p>
+            <p class="text-xs text-slate-300">Request has been routed to the center dashboard.</p>
+        </div>
+    </div>
+
+    <!-- JS for Modal & Booking Interaction -->
+    <script>
+        let selectedDoctor = '';
+        let selectedCenter = '';
+
+        function openBookingModal(docName, centerName, fee) {
+            selectedDoctor = docName;
+            selectedCenter = centerName;
+            document.getElementById('modalDocInfo').innerHTML = `<b>${docName}</b><br>${centerName} • Fee: <b>${fee}</b>`;
+            document.getElementById('bookingModal').classList.remove('hidden');
+            document.getElementById('bookingModal').classList.add('flex');
+        }
+
+        function closeBookingModal() {
+            document.getElementById('bookingModal').classList.remove('flex');
+            document.getElementById('bookingModal').classList.add('hidden');
+        }
+
+        function submitAppointment(e) {
+            e.preventDefault();
+            closeBookingModal();
+            
+            // Show Success Toast
+            const toast = document.getElementById('successToast');
+            toast.classList.remove('hidden');
+            toast.classList.add('flex');
+
+            setTimeout(() => {
+                toast.classList.remove('flex');
+                toast.classList.add('hidden');
+            }, 4000);
+
+            document.getElementById('appointmentForm').reset();
+        }
+
+        function applyFilters() {
+            alert('Filters applied successfully!');
+        }
+    </script>
+</body>
+</html>

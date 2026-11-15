@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Patient Dashboard & EHR — NetHealths</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+        body { font-family: 'Inter', sans-serif; }
+    </style>
+</head>
+<body class="bg-slate-100 text-slate-800">
+
+    <!-- Top Navigation Bar -->
+    <header class="bg-white border-b border-slate-200 sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex justify-between items-center">
+            <div class="flex items-center space-x-3">
+                <div class="w-9 h-9 bg-teal-600 rounded-lg flex items-center justify-center text-white font-bold text-xl">N</div>
+                <div>
+                    <span class="text-sm font-bold text-slate-900">NetHealths Patient Portal</span>
+                    <span class="block text-[10px] text-slate-500">Secure EHR & Appointments</span>
+                </div>
+            </div>
+            <div class="flex items-center space-x-4">
+                <span class="text-xs bg-teal-50 text-teal-700 font-semibold px-3 py-1 rounded-full border border-teal-200">
+                    <i class="fa-solid fa-shield-halved mr-1 text-teal-600"></i> HIPAA Secured Profile
+                </span>
+                <a href="index.html" class="text-xs font-medium text-slate-600 hover:text-slate-900"><i class="fa-solid fa-arrow-right-from-bracket mr-1"></i> Logout</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Container -->
+    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+        
+        <!-- Patient Profile Header & Quick Stats -->
+        <div class="grid grid-cols-1 lg:grid-cols-4 gap-6 mb-8">
+            
+            <!-- Profile Card -->
+            <div class="bg-white p-6 rounded-xl border border-slate-200 shadow-sm lg:col-span-1 flex flex-col items-center text-center">
+                <div class="w-20 h-20 rounded-full bg-teal-100 text-teal-700 font-bold flex items-center justify-center text-2xl mb-3">
+                    SB
+                </div>
+                <h3 class="font-bold text-slate-900 text-lg">Suman Biswas</h3>
+                <p class="text-xs text-slate-500">01711-223344 • Keranihat</p>
+                <div class="mt-4 w-full pt-4 border-t border-slate-100 text-left text-xs space-y-2">
+                    <div class="flex justify-between"><span class="text-slate-500">Age / Gender:</span> <span class="font-medium text-slate-800">26 / Male</span></div>
+                    <div class="flex justify-between"><span class="text-slate-500">Blood Group:</span> <span class="font-medium text-teal-600 font-bold">O (+ve)</span></div>
+                </div>
+            </div>
+
+            <!-- Stats Overview Cards -->
+            <div class="lg:col-span-3 grid grid-cols-1 sm:grid-cols-3 gap-4">
+                <div class="bg-white p-5 rounded-xl border border-slate-200 shadow-sm flex flex-col justify-between">
+                    <div>
+                        <p class="text-xs text-slate-500 font-medium">Upcoming Appointments</p>
+                        <h4 class="text-2xl font-bold text-slate-900 mt-1">1</h4>
+                    </div>
+                    <span class="text-xs text-teal-600 font-semibold mt-4"><i class="fa-solid fa-calendar-check mr-1"></i> Dr. Rafiqul Islam</span>
+                </div>
+                <div class="bg-white p-5 rounded-xl border border-slate-200 shadow-sm flex flex-col justify-between">
+                    <div>
+                        <p class="text-xs text-slate-500 font-medium">Lab Test Reports</p>
+                        <h4 class="text-2xl font-bold text-slate-900 mt-1">4 Ready</h4>
+                    </div>
+                    <span class="text-xs text-blue-600 font-semibold mt-4"><i class="fa-solid fa-flask mr-1"></i> Chevron & Metro Labs</span>
+                </div>
+                <div class="bg-white p-5 rounded-xl border border-slate-200 shadow-sm flex flex-col justify-between">
+                    <div>
+                        <p class="text-xs text-slate-500 font-medium">Digital Prescriptions</p>
+                        <h4 class="text-2xl font-bold text-slate-900 mt-1">6 Saved</h4>
+                    </div>
+                    <span class="text-xs text-indigo-600 font-semibold mt-4"><i class="fa-solid fa-file-medical mr-1"></i> Secure EHR Archive</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Tabs / Sections -->
+        <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+            
+            <!-- Left 2 Columns: Appointments & Lab Reports -->
+            <div class="lg:col-span-2 space-y-6">
+                
+                <!-- Upcoming Appointments -->
+                <div class="bg-white rounded-xl border border-slate-200 shadow-sm p-6">
+                    <div class="flex justify-between items-center mb-4">
+                        <h3 class="font-bold text-slate-900 text-base">My Appointments</h3>
+                        <a href="doctors.html" class="text-xs font-semibold text-teal-600 hover:underline">+ Book New Appointment</a>
+                    </div>
+                    
+                    <div class="bg-teal-50/60 border border-teal-200 rounded-xl p-4 flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
+                        <div>
+                            <span class="bg-teal-600 text-white text-[10px] font-bold px-2 py-0.5 rounded uppercase">Confirmed</span>
+                            <h4 class="font-bold text-slate-900 text-base mt-2">Dr. Rafiqul Islam</h4>
+                            <p class="text-xs text-slate-600">Cardiology Specialist • Chevron Clinical Lab, Keranihat</p>
+                            <p class="text-xs font-medium text-teal-800 mt-1"><i class="fa-regular fa-calendar-days mr-1"></i> Nov 17, 2026 • 5:30 PM (Fee: ৳ 1,000)</p>
+                        </div>
+                        <button onclick="alert('Appointment details & serial token downloaded.')" class="bg-white hover:bg-slate-50 text-slate-700 border border-slate-300 text-xs font-semibold px-4 py-2 rounded-lg transition shadow-sm">
+                            View Token
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Lab Test Reports -->
+                <div class="bg-white rounded-xl border border-slate-200 shadow-sm p-6">
+                    <div class="flex justify-between items-center mb-4">
+                        <h3 class="font-bold text-slate-900 text-base">Lab Test Bookings & Reports</h3>
+                        <a href="diagnostics.html" class="text-xs font-semibold text-teal-600 hover:underline">+ Book Lab Test</a>
+                    </div>
+
+                    <div class="space-y-3">
+                        <div class="flex justify-between items-center p-3 bg-slate-50 rounded-lg border border-slate-100 text-xs">
+                            <div>
+                                <span class="font-bold text-slate-900 block text-sm">Complete Blood Count (CBC)</span>
+                                <span class="text-slate-500">Chevron Clinical Lab • Nov 15, 2026</span>
+                            </div>
+                            <div class="flex items-center space-x-3">
+                                <span class="bg-teal-50 text-teal-700 font-semibold px-2.5 py-1 rounded-full border border-teal-200">Report Ready</span>
+                                <button onclick="alert('Downloading PDF Report...')" class="bg-teal-600 text-white px-3 py-1.5 rounded-lg hover:bg-teal-700 font-semibold">Download</button>
+                            </div>
+                        </div>
+
+                        <div class="flex justify-between items-center p-3 bg-slate-50 rounded-lg border border-slate-100 text-xs">
+                            <div>
+                                <span class="font-bold text-slate-900 block text-sm">Lipid Profile Test</span>
+                                <span class="text-slate-500">Metro Diagnostics • Nov 10, 2026</span>
+                            </div>
+                            <div class="flex items-center space-x-3">
+                                <span class="bg-teal-50 text-teal-700 font-semibold px-2.5 py-1 rounded-full border border-teal-200">Report Ready</span>
+                                <button onclick="alert('Downloading PDF Report...')" class="bg-teal-600 text-white px-3 py-1.5 rounded-lg hover:bg-teal-700 font-semibold">Download</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- Right Column: EHR Consent & Privacy Settings -->
+            <div class="lg:col-span-1 space-y-6">
+                
+                <div class="bg-white rounded-xl border border-slate-200 shadow-sm p-6">
+                    <h3 class="font-bold text-slate-900 text-base mb-2">EHR & HIPAA Consent</h3>
+                    <p class="text-xs text-slate-500 mb-4">Control which healthcare providers can access your medical records.</p>
+                    
+                    <div class="space-y-3 text-xs">
+                        <div class="flex items-center justify-between p-3 bg-slate-50 rounded-lg">
+                            <div>
+                                <span class="font-bold text-slate-800 block">Chevron Keranihat</span>
+                                <span class="text-slate-400">Access to history & reports</span>
+                            </div>
+                            <input type="checkbox" checked class="accent-teal-600 w-4 h-4">
+                        </div>
+
+                        <div class="flex items-center justify-between p-3 bg-slate-50 rounded-lg">
+                            <div>
+                                <span class="font-bold text-slate-800 block">Metro Care Hospital</span>
+                                <span class="text-slate-400">Access to history & reports</span>
+                            </div>
+                            <input type="checkbox" checked class="accent-teal-600 w-4 h-4">
+                        </div>
+
+                        <div class="flex items-center justify-between p-3 bg-slate-50 rounded-lg">
+                            <div>
+                                <span class="font-bold text-slate-800 block">Partner Agents / Pharmacies</span>
+                                <span class="text-slate-400">Referral notes only</span>
+                            </div>
+                            <input type="checkbox" class="accent-teal-600 w-4 h-4">
+                        </div>
+                    </div>
+
+                    <button onclick="alert('Consent settings updated successfully!')" class="mt-4 w-full bg-slate-900 hover:bg-slate-800 text-white font-medium py-2 rounded-lg transition text-xs">
+                        Save Privacy Settings
+                    </button>
+                </div>
+
+            </div>
+
+        </div>
+
+    </main>
+</body>
+</html>

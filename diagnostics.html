@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lab Test Prices & Diagnostics — NetHealths</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+        body { font-family: 'Inter', sans-serif; }
+    </style>
+</head>
+<body class="bg-slate-50 text-slate-800">
+
+    <!-- Navbar -->
+    <nav class="bg-white border-b border-slate-200 sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-16 items-center">
+                <div class="flex items-center space-x-2">
+                    <div class="w-9 h-9 bg-teal-600 rounded-lg flex items-center justify-center text-white font-bold text-xl">N</div>
+                    <span class="text-xl font-bold text-slate-900 tracking-tight">Net<span class="text-teal-600">Healths</span></span>
+                </div>
+                <div class="hidden md:flex space-x-8 text-sm font-medium text-slate-600">
+                    <a href="index.html" class="hover:text-teal-600 transition">Home</a>
+                    <a href="doctors.html" class="hover:text-teal-600 transition">Find Doctors</a>
+                    <a href="diagnostics.html" class="text-teal-600 font-semibold">Diagnostics & Lab Tests</a>
+                    <a href="hospitals.html" class="hover:text-teal-600 transition">Hospitals</a>
+                </div>
+                <div class="flex items-center space-x-3">
+                    <a href="provider-dashboard.html" class="bg-teal-600 hover:bg-teal-700 text-white text-sm font-medium px-4 py-2 rounded-lg transition shadow-sm">
+                        Provider Login
+                    </a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Header Banner -->
+    <section class="bg-blue-900 text-white py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h1 class="text-2xl sm:text-3xl font-bold">Compare Lab Test Prices Across Centers</h1>
+            <p class="text-blue-200 text-sm mt-1">Transparent pricing from partner diagnostic centers in Keranihat, Chittagong, and Satkania.</p>
+        </div>
+    </section>
+
+    <!-- Main Content Area -->
+    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+        <div class="grid grid-cols-1 lg:grid-cols-4 gap-8">
+            
+            <!-- Sidebar Filters -->
+            <div class="lg:col-span-1 bg-white p-6 rounded-xl border border-slate-200 h-fit shadow-sm">
+                <h3 class="font-bold text-slate-900 mb-4 text-base">Filter Tests</h3>
+                
+                <div class="space-y-4 text-sm">
+                    <div>
+                        <label class="block font-medium text-slate-700 mb-1">Diagnostic Center</label>
+                        <select id="filterCenter" class="w-full bg-slate-50 border border-slate-300 rounded-lg p-2 text-sm focus:outline-none focus:border-teal-500">
+                            <option value="all">All Centers</option>
+                            <option value="Chevron Keranihat">Chevron Keranihat</option>
+                            <option value="Metro Diagnostics">Metro Diagnostics</option>
+                            <option value="Popular Health Satkania">Popular Health Satkania</option>
+                        </select>
+                    </div>
+
+                    <div>
+                        <label class="block font-medium text-slate-700 mb-1">Test Category</label>
+                        <select id="filterCategory" class="w-full bg-slate-50 border border-slate-300 rounded-lg p-2 text-sm focus:outline-none focus:border-teal-500">
+                            <option value="all">All Categories</option>
+                            <option value="Pathology">Pathology (Blood/Urine)</option>
+                            <option value="Imaging">Imaging (X-Ray/USG)</option>
+                            <option value="Cardiology">Cardiology (ECG)</option>
+                        </select>
+                    </div>
+
+                    <button onclick="alert('Test filters applied!')" class="w-full bg-slate-900 hover:bg-slate-800 text-white font-medium py-2 rounded-lg transition text-sm">
+                        Apply Filters
+                    </button>
+                </div>
+            </div>
+
+            <!-- Lab Tests Table / List -->
+            <div class="lg:col-span-3 space-y-4">
+                
+                <!-- Test Card 1 -->
+                <div class="bg-white p-6 rounded-xl border border-slate-200 shadow-sm flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
+                    <div class="flex items-start space-x-4">
+                        <div class="w-14 h-14 rounded-lg bg-blue-50 text-blue-600 font-bold flex items-center justify-center text-xl shrink-0">
+                            <i class="fa-solid fa-flask"></i>
+                        </div>
+                        <div>
+                            <span class="bg-blue-50 text-blue-700 text-xs font-semibold px-2 py-0.5 rounded">Pathology</span>
+                            <h3 class="text-lg font-bold text-slate-900 mt-1">Complete Blood Count (CBC)</h3>
+                            <p class="text-xs text-slate-500">Includes Hb, WBC, RBC, Platelets & Indices</p>
+                            <p class="text-xs font-medium text-slate-700 mt-2"><i class="fa-solid fa-hospital text-teal-600 mr-1"></i> Chevron Clinical Laboratory, Keranihat</p>
+                        </div>
+                    </div>
+                    <div class="w-full sm:w-auto text-right flex sm:flex-col justify-between items-center sm:items-end">
+                        <span class="text-base font-bold text-slate-900">৳ 500</span>
+                        <button onclick="openTestModal('Complete Blood Count (CBC)', 'Chevron Clinical Laboratory, Keranihat', '৳ 500')" class="mt-3 bg-teal-600 hover:bg-teal-700 text-white text-xs font-semibold px-4 py-2.5 rounded-lg transition shadow-sm">
+                            Book Lab Test
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Test Card 2 -->
+                <div class="bg-white p-6 rounded-xl border border-slate-200 shadow-sm flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
+                    <div class="flex items-start space-x-4">
+                        <div class="w-14 h-14 rounded-lg bg-blue-50 text-blue-600 font-bold flex items-center justify-center text-xl shrink-0">
+                            <i class="fa-solid fa-flask"></i>
+                        </div>
+                        <div>
+                            <span class="bg-blue-50 text-blue-700 text-xs font-semibold px-2 py-0.5 rounded">Pathology</span>
+                            <h3 class="text-lg font-bold text-slate-900 mt-1">Blood Sugar (FBS / RBS)</h3>
+                            <p class="text-xs text-slate-500">Fastening or Random Blood Glucose test</p>
+                            <p class="text-xs font-medium text-slate-700 mt-2"><i class="fa-solid fa-hospital text-teal-600 mr-1"></i> Metro Diagnostics, Chittagong</p>
+                        </div>
+                    </div>
+                    <div class="w-full sm:w-auto text-right flex sm:flex-col justify-between items-center sm:items-end">
+                        <span class="text-base font-bold text-slate-900">৳ 200</span>
+                        <button onclick="openTestModal('Blood Sugar (FBS / RBS)', 'Metro Diagnostics, Chittagong', '৳ 200')" class="mt-3 bg-teal-600 hover:bg-teal-700 text-white text-xs font-semibold px-4 py-2.5 rounded-lg transition shadow-sm">
+                            Book Lab Test
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Test Card 3 -->
+                <div class="bg-white p-6 rounded-xl border border-slate-200 shadow-sm flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
+                    <div class="flex items-start space-x-4">
+                        <div class="w-14 h-14 rounded-lg bg-indigo-50 text-indigo-600 font-bold flex items-center justify-center text-xl shrink-0">
+                            <i class="fa-solid fa-x-ray"></i>
+                        </div>
+                        <div>
+                            <span class="bg-indigo-50 text-indigo-700 text-xs font-semibold px-2 py-0.5 rounded">Imaging</span>
+                            <h3 class="text-lg font-bold text-slate-900 mt-1">Digital X-Ray (Chest P/A View)</h3>
+                            <p class="text-xs text-slate-500">High-resolution digital imaging with report</p>
+                            <p class="text-xs font-medium text-slate-700 mt-2"><i class="fa-solid fa-hospital text-teal-600 mr-1"></i> Popular Health & Diagnostics, Satkania</p>
+                        </div>
+                    </div>
+                    <div class="w-full sm:w-auto text-right flex sm:flex-col justify-between items-center sm:items-end">
+                        <span class="text-base font-bold text-slate-900">৳ 600</span>
+                        <button onclick="openTestModal('Digital X-Ray (Chest P/A View)', 'Popular Health & Diagnostics, Satkania', '৳ 600')" class="mt-3 bg-teal-600 hover:bg-teal-700 text-white text-xs font-semibold px-4 py-2.5 rounded-lg transition shadow-sm">
+                            Book Lab Test
+                        </button>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </main>
+
+    <!-- Test Booking Modal -->
+    <div id="testModal" class="fixed inset-0 bg-slate-900/50 hidden items-center justify-center z-50 p-4">
+        <div class="bg-white max-w-md w-full rounded-2xl p-6 shadow-2xl relative">
+            <button onclick="closeTestModal()" class="absolute top-4 right-4 text-slate-400 hover:text-slate-600">
+                <i class="fa-solid fa-xmark text-lg"></i>
+            </button>
+            <h3 class="text-xl font-bold text-slate-900 mb-1">Book Lab Test</h3>
+            <p id="modalTestInfo" class="text-xs text-slate-500 mb-4">Test & Center Details</p>
+
+            <form id="testForm" onsubmit="submitTestBooking(event)" class="space-y-3 text-sm">
+                <div>
+                    <label class="block font-medium text-slate-700 text-xs mb-1">Patient Full Name</label>
+                    <input type="text" id="testPatientName" required placeholder="e.g. Suman Biswas" class="w-full bg-slate-50 border border-slate-300 rounded-lg p-2 text-sm focus:outline-none focus:border-teal-500">
+                </div>
+                <div>
+                    <label class="block font-medium text-slate-700 text-xs mb-1">Mobile Number</label>
+                    <input type="tel" id="testPatientPhone" required placeholder="e.g. 017XXXXXXXX" class="w-full bg-slate-50 border border-slate-300 rounded-lg p-2 text-sm focus:outline-none focus:border-teal-500">
+                </div>
+                <div>
+                    <label class="block font-medium text-slate-700 text-xs mb-1">Preferred Date & Time</label>
+                    <input type="date" id="testDate" required class="w-full bg-slate-50 border border-slate-300 rounded-lg p-2 text-sm focus:outline-none focus:border-teal-500">
+                </div>
+                <div class="pt-2">
+                    <button type="submit" class="w-full bg-teal-600 hover:bg-teal-700 text-white font-semibold py-2.5 rounded-lg transition text-sm">
+                        Confirm Lab Test Booking
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Toast Notification -->
+    <div id="testToast" class="fixed bottom-5 right-5 bg-slate-900 text-white px-6 py-3 rounded-xl shadow-xl hidden text-sm items-center space-x-3 z-50">
+        <i class="fa-solid fa-circle-check text-teal-400 text-lg"></i>
+        <div>
+            <p class="font-semibold">Lab Test Booked Successfully!</p>
+            <p class="text-xs text-slate-300">Sent to diagnostic center pricing & sample collection queue.</p>
+        </div>
+    </div>
+
+    <script>
+        function openTestModal(testName, centerName, price) {
+            document.getElementById('modalTestInfo').innerHTML = `<b>${testName}</b><br>${centerName} • Price: <b>${price}</b>`;
+            document.getElementById('testModal').classList.remove('hidden');
+            document.getElementById('testModal').classList.add('flex');
+        }
+
+        function closeTestModal() {
+            document.getElementById('testModal').classList.remove('flex');
+            document.getElementById('testModal').classList.add('hidden');
+        }
+
+        function submitTestBooking(e) {
+            e.preventDefault();
+            closeTestModal();
+            
+            const toast = document.getElementById('testToast');
+            toast.classList.remove('hidden');
+            toast.classList.add('flex');
+
+            setTimeout(() => {
+                toast.classList.remove('flex');
+                toast.classList.add('hidden');
+            }, 4000);
+
+            document.getElementById('testForm').reset();
+        }
+    </script>
+</body>
+</html>
